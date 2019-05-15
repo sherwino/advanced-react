@@ -1,7 +1,17 @@
+# Prisma imports are now avail because of the comment below
+
+# import * from './generated/prisma.graphql'
+
 type Mutation {
-    hi: String
+    # Now I know this looks ugly with all of the arguments
+    # ...but you could pass it objects instead of individual fields
+    # you just have to define the object as an input so that it could have a schema
+    # In this case Item is being imported, instead of defining it in this file
+    createItem(title: String, description: String, price: Int, image: String, largeImage: String): Item!
+
 }
 
 type Query {
-    hi: String
+    # dogs: [Dog]!
+    items: [Item]!
 }
